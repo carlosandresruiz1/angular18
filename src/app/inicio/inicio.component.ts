@@ -48,10 +48,11 @@ export class InicioComponent implements OnInit {
         const shuffledSongs = songs.sort(() => 0.5 - Math.random()).slice(0, 3);
         shuffledSongs.forEach(song => {
           console.log('Song Data:', song); // Log song data to check album_id
-          if (song.album_id) {
-            this.sharedService.getAlbum(song.album_id).subscribe(
-              (album: any) => { // Specify the type of 'album' as 'any'
-                const combinedData: any = {
+          if (song.fk_album_id) {
+            this.sharedService.getAlbum(song.fk_album_id).subscribe(
+              album => {
+                console.log('Album Data:', album); // Log album data
+                const combinedData = {
                   song_name: song.song_name,
                   album_name: album.album_name,
                   album_image: album.album_image

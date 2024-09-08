@@ -66,8 +66,9 @@ readonly PhotoUrl = " http://127.0.0.1:8000/api/savefile";
   getSongs():Observable<any[]>{
     return this.http.get<any>(this.APIUrl + '/song/');
   }
-  getAlbum(val:any){
-    return this.http.get(this.APIUrl + '/album/' + val);
+  getAlbum(album_id: number): Observable<any> {
+    console.log(`Fetching album with ID: ${album_id}`); // Log the album ID being fetched
+    return this.http.get<any>(`${this.APIUrl}/album/${album_id}`);
   }
  getAlbums():Observable<any[]>{
     return this.http.get<any>(this.APIUrl + '/album/');

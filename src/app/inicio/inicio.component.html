@@ -1,0 +1,43 @@
+<!--cita-->
+<div class="mt-5 container">
+    <div class="card text-white bg-dark">
+        <div class="card-header">
+            fraces de canciones!
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p>{{randomLyrics.lyrics}}.</p>
+                <footer class="blockquote-footer">Song:  <cite title="Source Title">{{randomLyrics.song}}</cite></footer>
+            </blockquote>
+        </div>
+    </div>
+</div>
+<div class="container mt-5">
+    <h2 class="h2 text-white">Songs</h2>
+    <hr style="color: aqua;">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let song of randomSongs">
+        <div class="card mb-3 border-info" data-bs-theme="dark">
+          <img [src]="song.album_image" class="card-img-top" alt="Song Image">
+          <div class="card-body">
+            <a href="./song.html"><h5 class="card-title">{{song.song_name}}</h5></a>
+            <p class="card-text">{{song.album_name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="container mt-3">
+    <h2 class="h2 text-white">Albums</h2>
+    <hr style="color: aqua;">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let album of randomAlbums">
+        <div class="card mb-3 border-info" data-bs-theme="dark">
+          <img [src]="album.album_image" class="card-img-top" alt="Album Image">
+          <div class="card-body">
+            <a href="./album.html"><h5 class="card-title">{{album.album_name}}</h5></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

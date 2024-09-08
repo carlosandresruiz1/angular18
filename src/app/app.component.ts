@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SharedService } from './shared.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'angular18';
+
+  constructor(private service:SharedService) { }
+
+  artistList: any[] = []
+
+  ngOnInit(): void {
+    this.refreshArtistList();
+  }
+
+  refreshArtistList(){
+    this.service.getartistList().subscribe(data =>{
+      this.artistList = data;
+    });
+  }
 }

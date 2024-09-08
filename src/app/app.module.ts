@@ -3,17 +3,29 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { SongComponent } from './song/song.component';
+import { SharedService } from './shared.service';
+import { share } from 'rxjs';
+
+import { provideHttpClient } from '@angular/common/http';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    InicioComponent,
+    SongComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [
-    provideClientHydration()
+  providers: [ SharedService,
+    provideClientHydration(),
+    provideHttpClient(),
   ],
   bootstrap: [AppComponent]
 })
